@@ -5,9 +5,26 @@ import { json } from 'stream/consumers';
 
 const app = express()
 
+const allowedOrigins = [
+  'https://coach-management-app.vercel.app/',
+  'https://coach-management-6enjta1rx-suhash-ms-projects.vercel.app/',
+  "https://coach-management-app-git-main-suhash-ms-projects.vercel.app/"
+  // add other preview domains if needed
+];
+
 app.use(cors({
-    origin: "https://coach-management-app.vercel.app/"
-}))
+  origin: function(origin, callback) {
+    // allow requests with no origin (like curl, mobile apps)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy: origin not allowed'));
+    }
+  },
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json())
 
 const PORT = process.env.PORT || 5000;
