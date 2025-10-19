@@ -14,6 +14,10 @@ const DB_File = './db.json'
 
 const readDB = () => JSON.parse(fs.readFileSync(DB_File, "utf-8"))
 
+app.get('/', (req, res) => {
+  res.json({ message: "API Working ✅" });
+});
+
 app.get("/coaches",(req, res)=>{
     const data = readDB()
     res.status(200).json(data.coaches);
