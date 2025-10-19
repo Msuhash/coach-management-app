@@ -6,7 +6,7 @@ import { json } from 'stream/consumers';
 const app = express()
 
 app.use(cors({
-    origin: "https://coach-management-2f8bhgk6c-suhash-ms-projects.vercel.app"
+    origin: "https://coach-management-app.vercel.app/"
 }))
 app.use(express.json())
 
