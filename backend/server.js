@@ -6,9 +6,9 @@ import { json } from 'stream/consumers';
 const app = express()
 
 const allowedOrigins = [
-  'https://coach-management-app.vercel.app/',
-  'https://coach-management-6enjta1rx-suhash-ms-projects.vercel.app/',
-  "https://coach-management-app-git-main-suhash-ms-projects.vercel.app/"
+  'https://coach-management-app.vercel.app',
+  'https://coach-management-6enjta1rx-suhash-ms-projects.vercel.app',
+  "https://coach-management-app-git-main-suhash-ms-projects.vercel.app"
   // add other preview domains if needed
 ];
 
